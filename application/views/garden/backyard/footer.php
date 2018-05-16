@@ -1,3 +1,9 @@
+					<footer id="footer-bar" class="row" style="opacity: 1;">
+						<p id="footer-copyright" class="col-xs-12">
+							Powered by <a href="https://arborweb.com.br">Arbor Web</a>.
+						</p>
+					</footer>
+				</div>
 		</div>
 	</body>
 </html>
@@ -28,6 +34,7 @@
 <?php foreach ($js as $value): ?>
 <script src="<?php echo base_url('assets/template/'.$value) ?>"></script>
 <?php endforeach ?>
+<?php echo $js_write ?>
 	
 <!-- theme scripts -->
 <script src="<?php echo base_url('assets/template/js/scripts.js') ?>"></script>

@@ -7,4 +7,9 @@ class Deleters extends WebController {
 		$this->Del_model->del_note($id);
 		redirect('welcome');
 	}
+
+	public function del_pit($id) {
+		$this->Del_model->del_pit($id);
+		redirect('welcome/index_open_pits');
+	}
 }

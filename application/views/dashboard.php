@@ -15,7 +15,7 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
 										<div class="main-box feed">
 											<header class="main-box-header clearfix">
 												<h2 class="pull-left">Anotações</h2>
@@ -43,7 +43,7 @@
 																</a>
 															</div>
 															<div>
-																<?php echo br_date($value->date) ?>
+																<strong><?php echo br_date($value->date) ?></strong>
 															</div>
 														</li>
 													<?php endforeach ?>
@@ -51,12 +51,12 @@
 											</div>
 										</div>
 									</div>
-									<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+									<div class="col-lg-5 col-md-6 col-sm-6 col-xs-12">
 										<div class="main-box clearfix">
 											<header class="main-box-header clearfix">
 													<h2>
 														Pedidos de Trabalho
-														<a href="#" class="table-link pull-right">
+														<a href="<?php echo base_url('welcome/index_set_pits') ?>" class="table-link pull-right">
 															<span class="fa-stack">
 																<i class="fa fa-square fa-stack-2x"></i>
 																<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
@@ -79,13 +79,15 @@
 															<?php foreach ($pits as $key => $value): ?>
 																<tr>
 																	<td>
-																		<a href="<?php echo base_url('getters/get_pit/'.$value->id) ?>">#AW<?php echo $value->id ?></a>
+																		<a href="<?php echo base_url('welcome/index_get_pit/'.$value->id) ?>">#AW<?php echo $value->id ?></a>
 																	</td>
 																	<td class="text-center">
-																		<span class="label <?php echo get_situation_box($value->stop) ?>"><?php echo pit_date($value->stop) ?></span>
+																		<span class="label <?php echo get_situation_box($value->stop) ?>"><?php echo pit_date($value->stop) ?></span> | 
+																			<?php echo pit_days($value->stop) ?>
 																	</td>
 																	<td>
-																		<a href="<?php echo base_url('getters/get_pit/'.$value->id) ?>"><?php echo $value->title ?></a>
+																		<strong><?php echo $value->client_id ?></strong><br>
+																		<?php echo $value->title ?>
 																	</td>
 																</tr>
 															<?php endforeach ?>
@@ -101,7 +103,7 @@
 												<header class="main-box-header clearfix">
 													<h2>
 														Campanhas
-														<a href="#" class="table-link pull-right">
+														<a href="<?php echo base_url('welcome/index_set_Campaing') ?>" class="table-link pull-right">
 															<span class="fa-stack">
 																<i class="fa fa-square fa-stack-2x"></i>
 																<i class="fa fa-plus fa-stack-1x fa-inverse"></i>
@@ -121,23 +123,24 @@
 																</tr>
 															</thead>
 															<tbody>
-																<?php foreach ($pits as $key => $value): ?>
+																<?php foreach ($campaings as $key => $value): ?>
 																	<tr>
 																		<td>
-																			<a href="">Bird</a>
+																			<strong><?php echo $value->client_id ?></strong><br>
+																			<a href="<?php echo base_url('welcome/index_get_campaing/'.$value->id) ?>"><?php echo $value->title ?></a>
 																		</td>
 																		<td class="text-center">
 																			<span class="label <?php echo get_situation_box($value->stop) ?>"><?php echo pit_date($value->stop) ?></span> | 
 																			<?php echo pit_days($value->stop) ?>
 																		</td>
 																		<td>
-																			<a href="#" class="table-link">
+																			<a href="<?php echo base_url() ?>" class="table-link">
 																				<span class="fa-stack">
 																					<i class="fa fa-square fa-stack-2x"></i>
 																					<i class="fa fa-check fa-stack-1x fa-inverse"></i>
 																				</span>
 																			</a>
-																			<a href="" class="table-link">
+																			<a href="<?php echo base_url('deleters/del_note/'.$value->id) ?>" class="table-link">
 																				<span class="fa-stack">
 																					<i class="fa fa-square fa-stack-2x"></i>
 																					<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
@@ -157,12 +160,3 @@
 								
 							</div>
 						</div>
-						
-						<footer id="footer-bar" class="row">
-							<p id="footer-copyright" class="col-xs-12">
-								Powered by Arbor Web.
-							</p>
-						</footer>
-					</div>
-				</div>
-			</div>

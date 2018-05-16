@@ -10,8 +10,10 @@ class WebController extends CI_Controller{
        $this->load->model('Get_model');
        $this->load->model('Set_model');
        $this->load->model('Del_model');
+       $this->load->model('Edit_model');
        $this->load->model('Note');
        $this->load->model('Pit');
+       $this->load->model('Campaing');
 	}
 
 	public function loadView($views){

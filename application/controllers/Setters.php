@@ -11,4 +11,31 @@ class Setters extends WebController {
 		$this->Set_model->set_note($note);
 		redirect('welcome');
 	}
+	
+	public function set_pit() {
+		$pit = new Pit();
+		$pit->set_title($_POST['title']);
+		$pit->set_description($_POST['description']);
+		$pit->set_client_id($_POST['client']);
+		$pit->set_campaing_id($_POST['campaing']);
+		$pit->set_start($_POST['start']);
+		$pit->set_stop($_POST['prize']);
+		$pit->set_user_id(1);
+		$pit->set_situation_id($_POST['situation']);
+		$this->Set_model->set_pit($pit);
+		redirect('welcome');
+	}
+	
+	public function set_campaing() {
+		$campaing = new Campaing();
+		$campaing->set_title($_POST['title']);
+		$campaing->set_description($_POST['description']);
+		$campaing->set_start($_POST['start']);
+		$campaing->set_stop($_POST['prize']);
+		$campaing->set_client_id($_POST['client']);
+		$campaing->set_user_id(1);
+		$campaing->set_situation_id($_POST['situation']);
+		$this->Set_model->set_campaing($campaing);
+		redirect('welcome');
+	}
 }
