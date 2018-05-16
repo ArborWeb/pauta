@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'pauta',
+	'hostname' => 'pauta_.mysql.dbaas.com.br',
+	'username' => 'pauta_',
+	'password' => 'gSw2io492',
+	'database' => 'pauta_',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

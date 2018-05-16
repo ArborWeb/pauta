@@ -16,4 +16,18 @@ class Editters extends WebController {
 		$this->Edit_model->Edit_campaing($campaing);
 		redirect('welcome/index_get_campaing/'.$campaing->id);
 	}
+
+	public function edit_pit() {
+		$pit = new pit();
+		$pit->set_id($_POST['id']);
+		$pit->set_title($_POST['title']);
+		$pit->set_description($_POST['description']);
+		$pit->set_start($_POST['start']);
+		$pit->set_stop($_POST['prize']);
+		$pit->set_client_id($_POST['client']);
+		$pit->set_user_id(1);
+		$pit->set_situation_id($_POST['situation']);
+		$this->Edit_model->Edit_pit($pit);
+		redirect('welcome/index_close_pits);
+	}
 }

@@ -61,12 +61,12 @@
 																			<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
 																		</span>
 																	</a>
-																	<!--<a href="#" class="table-link">
+																	<a href="<?php echo base_url('welcome/index_edit_pit/'.$value->id) ?>" class="table-link">
 																		<span class="fa-stack">
 																			<i class="fa fa-square fa-stack-2x"></i>
 																			<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 																		</span>
-																	</a>-->
+																	</a>
 																	<a href="<?php echo base_url('deleters/del_pit/'.$value->id) ?>" class="table-link danger">
 																		<span class="fa-stack">
 																			<i class="fa fa-square fa-stack-2x"></i>

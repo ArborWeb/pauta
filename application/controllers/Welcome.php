@@ -162,6 +162,29 @@ class Welcome extends WebController {
 		$this->loadView('garden/pits_list');
 	}
 
+	public function index_edit_pit($id) {
+		# this page specific styles
+		$this->data['css'] = array('css/libs/datepicker.css', 'css/libs/daterangepicker.css', 'css/libs/bootstrap-timepicker.css', 'css/libs/select2.css');
+		# this page specific scripts
+		$this->data['js']  = array('js/jquery.maskedinput.min.js', 'js/datepicker.js', 'js/moment.min.js', 'js/daterangepicker.js', 'js/bootstrap-timepicker.min.js', 'js/select2.min.js', 'js/hogan.js', 'js/typeahead.min.js', 'js/jquery.pwstrength.js');
+		$this->data['js_write'] = "<script>$('#maskedDate').mask('99/99/9999');$('#prize').datepicker();</script>";
+		$this->data['clients'] = $this->Get_model->get_clients();
+		$this->data['situations']   = $this->Get_model->get_situations();
+		$value = $this->Get_model->get_pit($id);
+		$pit = new pit();
+		$pit->set_id($value->id);
+		$pit->set_title($value->title);
+		$pit->set_description($value->description);
+		$pit->set_start($value->start);
+		$pit->set_stop($value->stop);
+		$pit->set_client_id($value->client_id);
+		$pit->set_user_id($value->user_id);
+		$pit->set_situation_id($value->situation_id);
+		$this->data['pit'] = $pit;
+		//dump($this->data);
+		$this->loadView('garden/pit_edit');
+	}
+
 	public function index_set_campaing() {
 		# this page specific styles
 		$this->data['css'] = array('css/libs/datepicker.css', 'css/libs/daterangepicker.css', 'css/libs/bootstrap-timepicker.css', 'css/libs/select2.css');
