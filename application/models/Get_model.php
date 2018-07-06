@@ -90,4 +90,19 @@ class Get_model extends CI_Model {
 		$this->db->where('campaings.id',$id);
 		return $this->db->get()->row();
 	}
+
+	public function get_last_interaction() {
+		$this->db->order_by('id','desc');
+		return $this->db->get('interactions')->row();
+	}
+
+	public function get_interactions_where($id) {
+		$this->db->order_by('id','desc');
+		return $this->db->get_where('interactions', array('campaing_id' => $id))->result();
+	}
+
+	public function get_interactions() {
+		$this->db->order_by('id','desc');
+		return $this->db->get('interactions')->result();
+	}
 }

@@ -117,21 +117,20 @@
 														<table class="table user-list table-hover">
 															<thead>
 																<tr>
-																	<th><span>Cliente</span></th>
+																	<th><span>Title</span></th>
 																	<th><span>Próxima Movimentação</span></th>
 																	<th></th>
 																</tr>
 															</thead>
 															<tbody>
-																<?php foreach ($campaings as $key => $value): ?>
+																<?php foreach ($interactions as $key => $value): ?>
 																	<tr>
 																		<td>
-																			<strong><?php echo $value->client_id ?></strong><br>
-																			<a href="<?php echo base_url('welcome/index_get_campaing/'.$value->id) ?>"><?php echo $value->title ?></a>
+																			<?php echo $value->title ?>
 																		</td>
 																		<td class="text-center">
-																			<span class="label <?php echo get_situation_box($value->stop) ?>"><?php echo pit_date($value->stop) ?></span> | 
-																			<?php echo pit_days($value->stop) ?>
+																			<span class="label <?php echo get_situation_box($value->date) ?>"><?php echo pit_date($value->date) ?></span> | 
+																			<?php echo interactions_days($value->date) ?>
 																		</td>
 																		<td>
 																			<a href="<?php echo base_url() ?>" class="table-link">

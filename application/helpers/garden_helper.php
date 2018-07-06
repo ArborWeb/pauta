@@ -14,6 +14,13 @@ if ( ! function_exists('dump')) {
 	}
 }
 
+if ( ! function_exists('json_to_db_date')) {
+	function json_to_db_date($data) {
+		$date = date('Y-m-d',strtotime(str_replace('/', '-', $data)));
+		return $date;
+	}
+}
+
 if ( ! function_exists('limit_text')) {
 	function limit_text($text, $limit) {
       if (str_word_count($text, 0) > $limit) {
@@ -74,6 +81,15 @@ if (! function_exists('pit_days')) {
 	}
 }
 
+if (! function_exists('interactions_days')) {
+	function interactions_days($date) {
+		$today = date('d-m-Y');
+		$date = date('d-m-Y',strtotime(str_replace('/', '-', $date)));
+		$days = (strtotime($date) - strtotime($today))/86400;
+		return $days;
+	}
+}
+
 if (! function_exists('get_situation_box')) {
 	function get_situation_box($date) {
 		$date = date('Y-m-d',strtotime($date));
@@ -91,3 +107,11 @@ if (! function_exists('get_situation_box')) {
 		}
 	}
 }
+
+if (! function_exists('set_posts')) {
+	function set_posts($data) {
+		
+		dump($data);
+	}
+}
+

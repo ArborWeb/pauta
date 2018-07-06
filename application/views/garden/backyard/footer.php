@@ -30,6 +30,7 @@
 <script src="<?php echo base_url('assets/template/js/bootstrap.js') ?>"></script>
 <script src="<?php echo base_url('assets/template/js/demo-skin-changer.js') ?>"></script>
 
+<script src="<?php echo base_url('html/js/interactions.js') ?>"></script>
 <!-- this page specific styles -->
 <?php foreach ($js as $value): ?>
 <script src="<?php echo base_url('assets/template/'.$value) ?>"></script>

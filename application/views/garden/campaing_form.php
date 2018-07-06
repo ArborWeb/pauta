@@ -53,6 +53,84 @@
 														<textarea name="description" class="form-control" id="description" rows="6"></textarea>
 													</div>
 												</div>
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group">
+														<label>Redes</label>
+														<br/>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="check-facebook" type="checkbox" id="check-facebook" />
+															<label for="check-facebook">
+																Facebook
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-instagram" type="checkbox" id="checkbox-instagram" />
+															<label for="checkbox-instagram">
+																Instagram
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-twitter" type="checkbox" id="checkbox-twitter" />
+															<label for="checkbox-twitter">
+																Twitter
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-linkedin" type="checkbox" id="checkbox-linkedin" />
+															<label for="checkbox-linkedin">
+																Linkedin
+															</label>
+														</div>
+													</div>
+												</div>
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+													<div class="form-group">
+														<label>Periodicidade</label>
+														<br/>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-segunda" type="checkbox" id="checkbox-segunda" />
+															<label for="checkbox-segunda">
+																Segunda
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-terca" type="checkbox" id="checkbox-terca" />
+															<label for="checkbox-terca">
+																Terça
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-quarta" type="checkbox" id="checkbox-quarta" />
+															<label for="checkbox-quarta">
+																Quarta
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-quinta" type="checkbox" id="checkbox-quinta" />
+															<label for="checkbox-quinta">
+																Quinta
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-sexta" type="checkbox" id="checkbox-sexta" />
+															<label for="checkbox-sexta">
+																Sexta
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-sabado" type="checkbox" id="checkbox-sabado" />
+															<label for="checkbox-sabado">
+																Sábado
+															</label>
+														</div>
+														<div class="checkbox-nice checkbox-inline">
+															<input name="checkbox-domingo" type="checkbox" id="checkbox-domingo" />
+															<label for="checkbox-domingo">
+																Domingo
+															</label>
+														</div>
+													</div>
+												</div>
 												<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 													<div class="form-group col-md-12">
 														<label for="prize">Prazo</label>
@@ -66,7 +144,7 @@
 													<div class="form-group col-md-12">
 														<label>Situação</label>
 														<select name="situation" class="form-control" id="campaings">
-																<option value="6r">Em Andamento</option> 
+																<option value="6">Em Andamento</option> 
 															<?php foreach ($situations as $key => $value): ?>
 																<option value="<?php echo $value->id ?>"><?php echo $value->title ?></option> 
 															<?php endforeach ?>

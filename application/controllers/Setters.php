@@ -36,6 +36,15 @@ class Setters extends WebController {
 		$campaing->set_user_id(1);
 		$campaing->set_situation_id($_POST['situation']);
 		$this->Set_model->set_campaing($campaing);
+
+		set_posts($_POST);
+
 		redirect('welcome');
+	}
+
+	public function set_interaction($id) {
+		
+		echo json_encode($_POST);
+
 	}
 }

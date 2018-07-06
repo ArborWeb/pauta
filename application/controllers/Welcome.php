@@ -10,12 +10,12 @@ class Welcome extends WebController {
 		$this->data['js']  = array("js/moment.min.js", "js/jquery-jvectormap-1.2.2.min.js", "js/jquery-jvectormap-world-merc-en.js", "js/gdp-data.js", "js/flot/jquery.flot.min.js", "js/flot/jquery.flot.resize.min.js", "js/flot/jquery.flot.time.min.js", "js/flot/jquery.flot.threshold.js", "js/flot/jquery.flot.axislabels.js", "js/jquery.sparkline.min.js", "js/skycons.js");
 		$this->data['js_write'] = "";
 		# getters
-		$notes                     = $this->Get_model->get_notes();
-		$this->data['notes']       = array();
-		$pits                      = $this->Get_model->get_pits();
-		$this->data['pits']        = array();
-		$campaings                 = $this->Get_model->get_campaings();
-		$this->data['campaings']   = array();
+		$notes                      = $this->Get_model->get_notes();
+		$this->data['notes']        = array();
+		$pits                       = $this->Get_model->get_pits();
+		$this->data['pits']         = array();
+		$interactions               = $this->Get_model->get_interactions();
+		$this->data['interactions'] = array();
 		$situations = $this->Get_model->get_situations();
 		$priorities = $this->Get_model->get_priorities();
 		# objects setters
@@ -39,19 +39,16 @@ class Welcome extends WebController {
 			$pit->set_situation_id($value->situation_id);
 			array_push($this->data['pits'], $pit);
 		}
-		foreach ($campaings as $key => $value) {
-			$campaing = new Campaing();
-			$campaing->set_id($value->id);
-			$campaing->set_title($value->title);
-			$campaing->set_description($value->description);
-			$campaing->set_start($value->start);
-			$campaing->set_stop($value->stop);
-			$campaing->set_client_id($value->client_id);
-			$campaing->set_user_id($value->user_id);
-			$campaing->set_situation_id($value->situation_id);
-			array_push($this->data['campaings'], $campaing);
+		
+		foreach ($interactions as $key => $value) {
+			$interaction = new Interaction();
+			$interaction->set_id($value->id);
+			$interaction->set_title($value->title);
+			$interaction->set_date($value->date);
+			$interaction->set_user_id($value->user_id);
+			array_push($this->data['interactions'], $interaction);
 		}
-		#dump($this->data['pits']);
+		##dump($this->data['interactions']);
 		$this->loadView('dashboard');
 	}
 
@@ -286,6 +283,7 @@ class Welcome extends WebController {
 		$campaing->set_user_id($value->user_id);
 		$campaing->set_situation_id($value->situation_id);
 		$this->data['campaing'] = $campaing;
+		$this->data['interactions'] = $this->Get_model->get_interactions_where($id);
 
 		$this->loadView('garden/campaing_detail');
 	}
@@ -312,4 +310,19 @@ class Welcome extends WebController {
 		//dump($this->data);
 		$this->loadView('garden/campaing_edit');
 	}
+
+	/*public function index_set_interaction($id) {
+		# this page specific styles
+		$this->data['css'] = array('css/libs/datepicker.css', 'css/libs/daterangepicker.css', 'css/libs/bootstrap-timepicker.css', 'css/libs/select2.css');
+		# this page specific scripts
+		$this->data['js']  = array('js/jquery.maskedinput.min.js', 'js/datepicker.js', 'js/moment.min.js', 'js/daterangepicker.js', 'js/bootstrap-timepicker.min.js', 'js/select2.min.js', 'js/hogan.js', 'js/typeahead.min.js', 'js/jquery.pwstrength.js');
+		$this->data['js_write'] = "<script>$('#maskedDate').mask('99/99/9999');$('#prize').datepicker();</script>";
+		$this->data['clients'] = $this->Get_model->get_clients();
+		$this->data['campaings']   = $this->Get_model->get_campaings();
+		$this->data['campaing']    = $this->Get_model->get_campaing($id);
+		$this->data['situations']   = $this->Get_model->get_situations();
+		//dump($this->data['campaing']);
+
+		$this->loadView('garden/interaction_form');
+	}*/
 }
