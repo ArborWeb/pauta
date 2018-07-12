@@ -92,7 +92,7 @@ if (! function_exists('interactions_days')) {
 
 if (! function_exists('get_situation_box')) {
 	function get_situation_box($date) {
-		$date = date('Y-m-d',strtotime($date));
+		$date = date('Y-m-d',strtotime(str_replace("/", "-", $date)));
 		$today = date('Y-m-d');
 		switch ($date) {
 			case $date > $today:

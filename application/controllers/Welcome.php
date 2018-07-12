@@ -15,6 +15,7 @@ class Welcome extends WebController {
 		$pits                       = $this->Get_model->get_pits();
 		$this->data['pits']         = array();
 		$interactions               = $this->Get_model->get_interactions();
+		//dump($interactions);
 		$this->data['interactions'] = array();
 		$situations = $this->Get_model->get_situations();
 		$priorities = $this->Get_model->get_priorities();
@@ -46,6 +47,7 @@ class Welcome extends WebController {
 			$interaction->set_title($value->title);
 			$interaction->set_date($value->date);
 			$interaction->set_user_id($value->user_id);
+			$interaction->set_campaing_id($value->campaing_id);
 			array_push($this->data['interactions'], $interaction);
 		}
 		##dump($this->data['interactions']);
@@ -72,6 +74,7 @@ class Welcome extends WebController {
 		$this->data['js']  = array();
 		$this->data['js_write'] = "";
 		$value = $this->Get_model->get_pit($id);
+		//dump($value);
 		$pit = new Pit();
 		$pit->set_id($value->id);
 		$pit->set_title($value->title);
@@ -268,10 +271,10 @@ class Welcome extends WebController {
 
 	public function index_get_campaing($id) {
 		# this page specific styles
-		$this->data['css'] = array();
+		$this->data['css'] = array('css/libs/datepicker.css','css/libs/daterangepicker.css');
 		# this page specific scripts
-		$this->data['js']  = array();
-		$this->data['js_write'] = "";
+		$this->data['js']  = array("js/datepicker.js","js/moment.min.js","js/daterangepicker.js");
+		$this->data['js_write'] = "<script>$('#date').datepicker();</script>";
 		$value = $this->Get_model->get_campaing($id);
 		$campaing = new Campaing();
 		$campaing->set_id($value->id);

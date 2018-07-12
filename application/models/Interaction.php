@@ -6,6 +6,7 @@ class Interaction extends CI_Model {
 	public $title;
 	public $date;
 	public $user_id;
+	public $campaing_id;
 	//setters
 	public function set_id($id) {
 		$this->id = $id;
@@ -21,6 +22,9 @@ class Interaction extends CI_Model {
 	public function set_user_id($user_id) {
 		$this->user_id = $user_id;
 	}
+	public function set_campaing_id($campaing_id) {
+		$this->campaing_id = $campaing_id;
+	}
 	//getters
 	public function id() {
 		$this->id;
@@ -33,5 +37,8 @@ class Interaction extends CI_Model {
 	}
 	public function user_id() {
 		$this->user_id;
+	}
+	public function campaing_id() {
+		$this->campaing_id;
 	}
 }

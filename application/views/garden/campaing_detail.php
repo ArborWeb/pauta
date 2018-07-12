@@ -50,10 +50,10 @@
 											</header>
 											<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 												<div class="form-group col-md-12">
-													<label for="date">Data</label>
-													<div class="input-group">
-														<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-														<input required value="<?php echo date('d/m/Y') ?>" name="date" type="text" class="form-control" id="date">
+													<label for="prize">Prazo</label>
+													<div class="input-group" data-date-format="dd-mm-yyyy">
+														<input name="prize" type="text" class="form-control" id="date" readonly="">
+														<span class="input-group-addon"><i class="fa fa-th"></i></span>
 													</div>
 												</div>
 											</div>

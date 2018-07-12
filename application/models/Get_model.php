@@ -44,12 +44,13 @@ class Get_model extends CI_Model {
 	}
 
 	public function get_pit($id) {
-		$this->db->select('pits.*, clients.name as client_id, situations.title as situation_id, users.name as user_id, campaings.title as campaing_id');
+		//$this->db->select('pits.*, clients.name as client_id, situations.title as situation_id, users.name as user_id, campaings.title as campaing_id');
+		$this->db->select('pits.*, clients.name as client_id, situations.title as situation_id, users.name as user_id');
 		$this->db->from('pits');
 		$this->db->join('situations', 'situations.id = pits.situation_id');
 		$this->db->join('clients', 'clients.id = pits.client_id');
 		$this->db->join('users', 'users.id = pits.user_id');
-		$this->db->join('campaings', 'campaings.id = pits.campaing_id');
+		//$this->db->join('campaings', 'campaings.id = pits.campaing_id');
 		$this->db->where('pits.id',$id);
 		return $this->db->get()->row();
 	}
@@ -102,7 +103,15 @@ class Get_model extends CI_Model {
 	}
 
 	public function get_interactions() {
-		$this->db->order_by('id','desc');
-		return $this->db->get('interactions')->result();
+		$this->db->select('interactions.*, campaings.title as campaing_id, situations.title as situation_id, users.name as user_id');
+		$this->db->from('interactions');
+		$this->db->join('situations', 'situations.id = interactions.situation_id');
+		$this->db->join('campaings', 'campaings.id = interactions.campaing_id');
+		$this->db->join('users', 'users.id = interactions.user_id');
+		$this->db->where('interactions.situation_id',6);
+		$this->db->or_where('interactions.situation_id',5);
+		$this->db->or_where('interactions.situation_id',4);
+		$this->db->order_by('date','asc');
+		return $this->db->get()->result();
 	}
 }

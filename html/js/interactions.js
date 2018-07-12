@@ -5,7 +5,7 @@ var set_interaction = function(id) {
 	var formData = new FormData();
 	formData.append('title', document.getElementById("title").value);
 	formData.append('date', document.getElementById("date").value);
-	formData.append('user_id', document.getElementById("user").value);
+	formData.append('user_id', 1);
 	formData.append('campaing_id', id);
 	request.send(formData);
 	clear_interaction_form();

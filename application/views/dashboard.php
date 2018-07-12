@@ -126,6 +126,7 @@
 																<?php foreach ($interactions as $key => $value): ?>
 																	<tr>
 																		<td>
+																			<strong><?php echo $value->campaing_id ?></strong><br>
 																			<?php echo $value->title ?>
 																		</td>
 																		<td class="text-center">
@@ -133,13 +134,13 @@
 																			<?php echo interactions_days($value->date) ?>
 																		</td>
 																		<td>
-																			<a href="<?php echo base_url() ?>" class="table-link">
+																			<a href="<?php echo base_url('closer/set_ok/interactions/'.$value->id) ?>" class="table-link">
 																				<span class="fa-stack">
 																					<i class="fa fa-square fa-stack-2x"></i>
 																					<i class="fa fa-check fa-stack-1x fa-inverse"></i>
 																				</span>
 																			</a>
-																			<a href="<?php echo base_url('deleters/del_note/'.$value->id) ?>" class="table-link">
+																			<a href="<?php echo base_url('deleters/set_del/interactions/'.$value->id) ?>" class="table-link">
 																				<span class="fa-stack">
 																					<i class="fa fa-square fa-stack-2x"></i>
 																					<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
