@@ -1,4 +1,4 @@
 RewriteEngine on
-RewriteCond $1 !^(index\.php|html|assets|orcamento|reiki-ribeirao-preto|financial|prospect|display|spf|img|redoxy|pazdoeu|multibrisa|robots\.txt|sitemap-arbor\.xml|favicon\.ico)
+RewriteCond $1 !^(index\.php|html|assets|robots\.txt|favicon\.ico)
 RewriteRule ^(.*)$ index.php/$1 [L]
 Header add Access-Control-Allow-Origin "*" 

@@ -14,4 +14,7 @@ class Set_model extends CI_Model {
 	public function set_interaction($interaction) {
 		return $this->db->insert('interactions',$interaction);
 	}
+	public function set_comment($comment) {
+		return $this->db->insert('comments',$comment);
+	}
 }

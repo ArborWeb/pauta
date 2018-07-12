@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'pauta_.mysql.dbaas.com.br',
+	'hostname' => '179.188.16.30',
 	'username' => 'pauta_',
 	'password' => 'gSw2io492',
 	'database' => 'pauta_',

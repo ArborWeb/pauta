@@ -38,7 +38,7 @@
 																<a href="<?php echo base_url('deleters/del_note/'.$value->id) ?>" class="table-link danger pull-right">
 																	<span class="fa-stack">
 																		<i class="fa fa-square fa-stack-2x"></i>
-																		<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+																		<i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
 																	</span>
 																</a>
 															</div>
@@ -55,7 +55,7 @@
 										<div class="main-box clearfix">
 											<header class="main-box-header clearfix">
 													<h2>
-														Pedidos de Trabalho
+														<a href="welcome/index_open_pits">Pedidos de Trabalho</a>
 														<a href="<?php echo base_url('welcome/index_set_pits') ?>" class="table-link pull-right">
 															<span class="fa-stack">
 																<i class="fa fa-square fa-stack-2x"></i>
@@ -102,7 +102,7 @@
 											<div class="main-box clearfix">
 												<header class="main-box-header clearfix">
 													<h2>
-														Campanhas
+														<a href="<?php echo base_url('welcome/index_open_campaings') ?>">Campanhas</a>
 														<a href="<?php echo base_url('welcome/index_set_Campaing') ?>" class="table-link pull-right">
 															<span class="fa-stack">
 																<i class="fa fa-square fa-stack-2x"></i>
@@ -126,11 +126,11 @@
 																<?php foreach ($interactions as $key => $value): ?>
 																	<tr>
 																		<td>
-																			<strong><?php echo $value->campaing_id ?></strong><br>
+																			<a href="<?php echo base_url('welcome/index_get_campaing/'.$value->campaing_id) ?>"><strong><?php echo $value->campaing ?></strong></a><br>
 																			<?php echo $value->title ?>
 																		</td>
 																		<td class="text-center">
-																			<span class="label <?php echo get_situation_box($value->date) ?>"><?php echo pit_date($value->date) ?></span> | 
+																			<span class="label <?php echo get_situation_box($value->date) ?>"><?php echo $value->date ?></span> | 
 																			<?php echo interactions_days($value->date) ?>
 																		</td>
 																		<td>
@@ -143,7 +143,7 @@
 																			<a href="<?php echo base_url('deleters/set_del/interactions/'.$value->id) ?>" class="table-link">
 																				<span class="fa-stack">
 																					<i class="fa fa-square fa-stack-2x"></i>
-																					<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+																					<i class="fas fa-trash-alt fa-stack-1x fa-inverse"></i>
 																				</span>
 																			</a>
 																		</td>

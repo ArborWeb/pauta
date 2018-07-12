@@ -5,8 +5,10 @@ class WebController extends CI_Controller{
 	
 	public function __construct(){
        parent::__construct();
+       $ci = get_instance();
        date_default_timezone_set('America/Sao_Paulo');
        $this->load->helper('garden_helper');
+       autoriza();
        $this->load->model('Get_model');
        $this->load->model('Set_model');
        $this->load->model('Del_model');
@@ -16,6 +18,8 @@ class WebController extends CI_Controller{
        $this->load->model('Pit');
        $this->load->model('Interaction');
        $this->load->model('Campaing');
+       $ci->data['user'] = $this->Get_model->get_user(get_cookie('logado'));
+       //dump($ci->data['user']);
 	}
 
 	public function loadView($views){

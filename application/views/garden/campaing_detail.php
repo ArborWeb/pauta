@@ -43,7 +43,7 @@
 									</div>
 								</div>
 								<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-									<form id="set_interaction" action="<?php echo base_url('setters/set_pit') ?>" method="post">
+									<form id="set_interaction" method="post">
 										<div class="main-box clearfix">
 											<header class="main-box-header">
 												<h2>Interação</h2>

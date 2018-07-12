@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends WebController {
 
+	public function __construct(){
+       parent::__construct();
+       date_default_timezone_set('America/Sao_Paulo');
+	}
+
 	public function index() {
 		# this page specific styles
 		$this->data['css'] = array('css/libs/daterangepicker.css');
@@ -12,6 +17,7 @@ class Welcome extends WebController {
 		# getters
 		$notes                      = $this->Get_model->get_notes();
 		$this->data['notes']        = array();
+		//$this->data['user']         = $this->Get_model->get_user(get_cookie('logado'));
 		$pits                       = $this->Get_model->get_pits();
 		$this->data['pits']         = array();
 		$interactions               = $this->Get_model->get_interactions();
@@ -48,9 +54,10 @@ class Welcome extends WebController {
 			$interaction->set_date($value->date);
 			$interaction->set_user_id($value->user_id);
 			$interaction->set_campaing_id($value->campaing_id);
+			$interaction->set_campaing($value->campaing);
 			array_push($this->data['interactions'], $interaction);
 		}
-		##dump($this->data['interactions']);
+		//dump($this->data['interactions']);
 		$this->loadView('dashboard');
 	}
 
@@ -86,6 +93,7 @@ class Welcome extends WebController {
 		$pit->set_user_id($value->user_id);
 		$pit->set_situation_id($value->situation_id);
 		$this->data['pit'] = $pit;
+		$this->data['comments'] = $this->Get_model->get_comments_where($id);
 
 		$this->loadView('garden/pit_detail');
 	}
@@ -287,6 +295,7 @@ class Welcome extends WebController {
 		$campaing->set_situation_id($value->situation_id);
 		$this->data['campaing'] = $campaing;
 		$this->data['interactions'] = $this->Get_model->get_interactions_where($id);
+		//dump($this->data['interactions']);
 
 		$this->loadView('garden/campaing_detail');
 	}

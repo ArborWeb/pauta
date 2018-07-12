@@ -14,4 +14,12 @@ class Ajax extends WebController {
 		$last = $this->Get_model->get_last_interaction();
 		echo json_encode($last);
 	}
+
+	public function set_comment($id) {
+		$data = $_POST;
+		$data['time'] = date('Y-m-d H:i:s');
+		$this->Set_model->set_comment($data);
+		$last = $this->Get_model->get_last_comment();
+		echo json_encode($last);
+	}
 }

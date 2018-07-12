@@ -28,6 +28,6 @@ class Editters extends WebController {
 		$pit->set_user_id(1);
 		$pit->set_situation_id($_POST['situation']);
 		$this->Edit_model->Edit_pit($pit);
-		redirect('welcome/index_close_pits);
+		redirect('');
 	}
 }

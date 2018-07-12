@@ -97,13 +97,22 @@ class Get_model extends CI_Model {
 		return $this->db->get('interactions')->row();
 	}
 
-	public function get_interactions_where($id) {
+	public function get_last_comment() {
 		$this->db->order_by('id','desc');
-		return $this->db->get_where('interactions', array('campaing_id' => $id))->result();
+		return $this->db->get('comments')->row();
+	}
+
+	public function get_interactions_where($id) {
+		$this->db->where('campaing_id', $id);
+		$this->db->where('situation_id',6);
+		$this->db->or_where('situation_id',5);
+		$this->db->or_where('situation_id',4);
+		$this->db->order_by('id','desc');
+		return $this->db->get('interactions')->result();
 	}
 
 	public function get_interactions() {
-		$this->db->select('interactions.*, campaings.title as campaing_id, situations.title as situation_id, users.name as user_id');
+		$this->db->select('interactions.*, campaings.title as campaing, campaings.id as campaing_id, situations.title as situation_id, users.name as user_id');
 		$this->db->from('interactions');
 		$this->db->join('situations', 'situations.id = interactions.situation_id');
 		$this->db->join('campaings', 'campaings.id = interactions.campaing_id');
@@ -113,5 +122,18 @@ class Get_model extends CI_Model {
 		$this->db->or_where('interactions.situation_id',4);
 		$this->db->order_by('date','asc');
 		return $this->db->get()->result();
+	}
+
+	public function get_comments_where($id) {
+		$this->db->where('pit_id', $id);
+		$this->db->where('situation_id',6);
+		$this->db->or_where('situation_id',5);
+		$this->db->or_where('situation_id',4);
+		$this->db->order_by('id','desc');
+		return $this->db->get('comments')->result();
+	}
+
+	public function get_user($data) {
+		return $this->db->get_where('users', array('user' => $data))->row();
 	}
 }
